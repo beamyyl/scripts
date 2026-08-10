@@ -1,4 +1,4 @@
-sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers pipewire pipewire-alsa pipewire-pulseaudio wireplumber libinput
+sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-utils alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers pipewire pipewire-alsa pipewire-pulseaudio wireplumber libinput
 sudo systemctl set-default graphical.target
 systemctl enable --user --now pipewire.socket pipewire-pulse.socket wireplumber pipewire pipewire-pulse
 
