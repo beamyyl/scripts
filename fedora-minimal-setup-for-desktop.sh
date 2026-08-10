@@ -1,8 +1,9 @@
 sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers libinput
 sudo systemctl set-default graphical.target
 
-read -p "Do you want to install a Desktop Environment?" -n 1 -r
-echo
+read -p "Do you want to install a Desktop Environment? ([Y]/n) "$'\n' -n 1 -r
+echo '-> '
+REPLY=${REPLY:-y}
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
   while true; do
@@ -31,6 +32,6 @@ echo '3...'
 sleep 1
 echo '2..'
 sleep 1
-'echo 1..'
+echo '1.'
 sleep 1
 sudo reboot
