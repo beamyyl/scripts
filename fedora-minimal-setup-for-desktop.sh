@@ -2,6 +2,9 @@ sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodul
 sudo systemctl set-default graphical.target
 systemctl enable --user --now pipewire.socket pipewire-pulse.socket wireplumber pipewire pipewire-pulse
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+echo 'max-parallel-downloads=10
+fastestmirror=true
+defaultyes=true' | sudo tee -a /etc/dnf/dnf.conf
 
 read -p "Do you want to install a Desktop Environment? ([Y]/n) "$'\n' -n 1 -r
 echo '-> '
