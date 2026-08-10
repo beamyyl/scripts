@@ -9,12 +9,14 @@ then
     read -p "Enter 1 for GNOME or 2 for KDE: " choice
     case "$choice" in
         1)
-            sudo dnf install -y @gnome-desktop
+            sudo dnf install -y @gnome-desktop power-profiles-daemon
+            sudo systemctl enable power-profiles-daemon
             sudo systemctl enable gdm --force
             break
             ;;
         2)
-            sudo dnf install -y @kde-desktop
+            sudo dnf install -y @kde-desktop power-profiles-daemon
+            sudo systemctl enable power-profiles-daemon
             sudo systemctl enable plasma-login --force
             break
             ;;
