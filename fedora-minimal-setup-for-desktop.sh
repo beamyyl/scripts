@@ -1,4 +1,4 @@
-sudo dnf install -y kernel-modules kernel-modules-extra kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers libinput
+sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers libinput
 sudo systemctl set-default graphical.target
 
 read -p "Do you want to install a Desktop Environment?" -n 1 -r
