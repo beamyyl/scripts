@@ -1,5 +1,6 @@
-sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers libinput
+sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers pipewire pipewire-alsa pipewire-pulseaudio wireplumber libinput
 sudo systemctl set-default graphical.target
+systemctl enable --user --now pipewire.socket pipewire-pulse.socket wireplumber pipewire pipewire-pulse
 
 read -p "Do you want to install a Desktop Environment? ([Y]/n) "$'\n' -n 1 -r
 echo '-> '
