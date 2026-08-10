@@ -26,3 +26,11 @@ then
     esac
   done
 fi
+echo 'The system will reboot in 3 seconds.'
+echo '3...'
+sleep 1
+echo '2..'
+sleep 1
+'echo 1..'
+sleep 1
+sudo reboot
