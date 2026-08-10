@@ -1,6 +1,7 @@
 sudo dnf install -y kernel-modules kernel-modules-extra @networkmanager-submodules NetworkManager-tui NetworkManager kernel-headers linux-firmware alsa-firmware alsa-utils alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers pipewire pipewire-alsa pipewire-pulseaudio wireplumber libinput
 sudo systemctl set-default graphical.target
 systemctl enable --user --now pipewire.socket pipewire-pulse.socket wireplumber pipewire pipewire-pulse
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 read -p "Do you want to install a Desktop Environment? ([Y]/n) "$'\n' -n 1 -r
 echo '-> '
@@ -11,7 +12,7 @@ then
     read -p "Enter 1 for GNOME or 2 for KDE: " choice
     case "$choice" in
         1)
-            sudo dnf install -y @gnome-desktop power-profiles-daemon
+            sudo dnf install -y @gnome-desktop gnome-tweaks power-profiles-daemon
             sudo systemctl enable power-profiles-daemon
             sudo systemctl enable gdm --force
             break
