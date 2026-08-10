@@ -1,0 +1,26 @@
+sudo dnf install -y kernel-modules kernel-modules-extra kernel-headers linux-firmware alsa-firmware alsa-sof-firmware mesa-dri-drivers mesa-vulkan-drivers libinput
+sudo systemctl set-default graphical.target
+
+read -p "Do you want to install a Desktop Environment?" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  while true; do
+    read -p "Enter 1 for GNOME or 2 for KDE: " choice
+    case "$choice" in
+        1)
+            sudo dnf install -y @gnome-desktop
+            sudo systemctl enable gdm --force
+            break
+            ;;
+        2)
+            sudo dnf install -y @kde-desktop
+            sudo systemctl enable plasma-login --force
+            break
+            ;;
+        *)
+            echo "Invalid number. Please try again."
+            ;;
+    esac
+  done
+fi
